@@ -21,6 +21,16 @@ body {
 	grid-gap: 30px;
 }
 
+.input-group {
+	margin: 5% 0;
+	text-align: center;
+}
+
+.input-group #search,
+#submit {
+	padding: 5px;
+}
+
 #meal-container .meal-card {
 	background: #f8f7f5;
 	color: #252525;
