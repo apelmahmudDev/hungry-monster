@@ -6,7 +6,6 @@
 body {
 	background: #fff;
 	font-family: 'Lato', sans-serif;
-	color: #fff;
 }
 
 .container {
@@ -46,4 +45,12 @@ body {
 #meal-container .meal-card h3 {
 	text-align: center;
 	padding: 15px 0;
+}
+
+.ingredient-list {
+	list-style: none;
+}
+
+.ingredient-icon {
+	color: #f06c4e;
 }
