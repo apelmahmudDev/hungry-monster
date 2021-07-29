@@ -1,0 +1,39 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #fff;
+	font-family: 'Lato', sans-serif;
+	color: #fff;
+}
+
+.container {
+	width: 1140px;
+	max-width: 90%;
+	margin: 0 auto;
+}
+
+#meal-container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 30px;
+}
+
+#meal-container .meal-card {
+	background: #f8f7f5;
+	color: #252525;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+	overflow: hidden;
+}
+
+#meal-container .meal-card img {
+	width: 100%;
+}
+
+#meal-container .meal-card h3 {
+	text-align: center;
+	padding: 15px 0;
+}
