@@ -1,6 +1,6 @@
 # hungry-monster using Vanilla JavaScript and API based website
 
-![https://apelmahmuddev.github.io/hungry-monster/](https://github.com/apelmahmudDev/shopping-cart/blob/master/images/mobile-shopping-cart.png?raw=true)
+![https://apelmahmuddev.github.io/hungry-monster/](https://github.com/apelmahmudDev/hungry-monster/blob/master/images/hungry-monster.PNG?raw=true)
 
 ## The awesome website made by the following:
 
@@ -17,10 +17,10 @@
 - CSS and
 - Javascript
 
-## [Live site](https://apelmahmuddev.github.io/hungry-monster/)
+### [Live site](https://apelmahmuddev.github.io/hungry-monster/)
 
-## Finally, you can fork this repo to practice yourself.
+### Finally, you can fork this repo to practice yourself.
 
-## And if it could help you, please give me a star ⭐
+### And if it could help you, please give me a star ⭐
 
-## Thank you 💙
+### Thank you 💙
