@@ -18,7 +18,8 @@ const mealDetailShow = (meal) => {
 	const mealDetail = document.getElementById('meal-details');
 	const mealDetailCard = document.createElement('div');
 	const createMealDetailCard = `
-        <img width="300" src="${meal.strMealThumb}" alt="meal image"/>
+        <img src="${meal.strMealThumb}" alt="meal image"/>
+        <h2>${meal.strMeal}</h2>
         <h3>Ingredients</h3>
         <ul class="ingredient-list">
             <li>
@@ -56,6 +57,7 @@ const mealDetailShow = (meal) => {
         </ul>
     `;
 	mealDetailCard.innerHTML = createMealDetailCard;
+	mealDetailCard.setAttribute('class', 'meal-detail-card');
 	mealDetail.appendChild(mealDetailCard);
 };
 

@@ -14,6 +14,19 @@ body {
 	margin: 0 auto;
 }
 
+.nav {
+	margin-top: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.menu .menu-item {
+	margin: 0 15px;
+	text-decoration: none;
+	color: #383838;
+}
+
 #meal-container {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -25,9 +38,22 @@ body {
 	text-align: center;
 }
 
-.input-group #search,
-#submit {
-	padding: 5px;
+input[type='text'],
+input[type='submit'] {
+	font-size: 17px;
+	padding: 10px;
+	border: 0;
+	border-radius: 5px;
+}
+
+input[type='text'] {
+	background: #f8f7f5;
+	width: 40%;
+}
+
+input[type='submit'] {
+	background: #f06c4e;
+	color: #fff;
 }
 
 #meal-container .meal-card {
@@ -36,6 +62,10 @@ body {
 	border-radius: 10px;
 	box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 	overflow: hidden;
+}
+
+#meal-container .meal-card button {
+	border: none;
 }
 
 #meal-container .meal-card img {
@@ -47,10 +77,30 @@ body {
 	padding: 15px 0;
 }
 
-.ingredient-list {
+.ingredient-list li {
 	list-style: none;
+	margin: 5px 0;
 }
 
 .ingredient-icon {
 	color: #f06c4e;
+}
+
+#meal-details {
+	margin-top: 5%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	justify-content: center;
+}
+.meal-detail-card h2,
+.meal-detail-card h3 {
+	margin: 10px 0;
+}
+
+.meal-detail-card img {
+	width: 500px;
+	height: 250px;
+	object-fit: cover;
+	border-radius: 5px;
 }

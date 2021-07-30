@@ -26,6 +26,21 @@
 	</head>
 	<body>
 		<div class="container">
+			<!-- navigation bar -->
+			<div class="nav">
+				<a href="#home" class="navbar-brand">
+					<img
+						src="./images/logo/hungry-monster-nav-logo.svg"
+						alt="Hungry Monster logo"
+					/>
+				</a>
+				<div class="menu">
+					<a class="menu-item" href="#home">Home</a>
+					<a class="menu-item" href="#about">About</a>
+					<a class="menu-item" href="#recipes">Recipes</a>
+					<a class="menu-item" href="#blog">Blog</a>
+				</div>
+			</div>
 			<div id="meal-details"></div>
 			<!-- search input -->
 			<form id="myForm">
@@ -33,7 +48,7 @@
 					<input
 						id="search"
 						type="text"
-						placeholder="Search for Meal"
+						placeholder="🔍 Search for Meal"
 						required
 					/>
 					<input id="submit" type="submit" value="Search" />
