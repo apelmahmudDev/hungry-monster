@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Hungry-Monster-😋</title>
+		<!-- favicon -->
 		<link rel="icon" type="image/png" href="./images/logo/hungry-monster.svg" />
 		<!-- lato font -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,7 +14,6 @@
 			href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
 			rel="stylesheet"
 		/>
-
 		<!-- fontawesome -->
 		<link
 			rel="stylesheet"
@@ -21,41 +21,54 @@
 			integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
 			crossorigin="anonymous"
 		/>
-
+		<!-- stylesheet -->
 		<link rel="stylesheet" href="./styles/style.css" />
 	</head>
 	<body>
 		<div class="container">
 			<!-- navigation bar -->
-			<div class="nav">
-				<a href="#home" class="navbar-brand">
-					<img
-						src="./images/logo/hungry-monster-nav-logo.svg"
-						alt="Hungry Monster logo"
-					/>
-				</a>
-				<div class="menu">
-					<a class="menu-item" href="#home">Home</a>
-					<a class="menu-item" href="#about">About</a>
-					<a class="menu-item" href="#recipes">Recipes</a>
-					<a class="menu-item" href="#blog">Blog</a>
-				</div>
-			</div>
-			<div id="meal-details"></div>
-			<!-- search input -->
-			<form id="myForm">
-				<div class="input-group">
-					<input
-						id="search"
-						type="text"
-						placeholder="🔍 Search for Meal"
-						required
-					/>
-					<input id="submit" type="submit" value="Search" />
-				</div>
-			</form>
+			<header>
+				<nav class="nav">
+					<a href="#home" class="navbar-brand">
+						<img
+							src="./images/logo/hungry-monster-nav-logo.svg"
+							alt="Hungry Monster logo"
+						/>
+					</a>
+					<div class="menu">
+						<a class="menu-item" href="#home">Home</a>
+						<a class="menu-item" href="#about">About</a>
+						<a class="menu-item" href="#recipes">Recipes</a>
+						<a class="menu-item" href="#blog">Blog</a>
+					</div>
+				</nav>
+			</header>
+			<main>
+				<!-- displaying meal details -->
+				<section>
+					<div id="meal-details"></div>
+				</section>
 
-			<div id="meal-container"></div>
+				<!-- search input -->
+				<section>
+					<form id="myForm">
+						<div class="input-group">
+							<input
+								id="search"
+								type="text"
+								placeholder="🔍 Search for Meal"
+								required
+							/>
+							<input id="submit" type="submit" value="Search" />
+						</div>
+					</form>
+				</section>
+
+				<!-- displaying meal info into meal card -->
+				<section>
+					<div id="meal-container"></div>
+				</section>
+			</main>
 		</div>
 		<footer class="footer">
 			<div class="copry-right">
