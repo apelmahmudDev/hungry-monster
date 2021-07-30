@@ -1,80 +1,101 @@
-const form = document.getElementById('myForm');
-const handleForm = (e) => {
-	const getInput = document.getElementById('search').value;
-	e.preventDefault();
-	fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${getInput}`)
-		.then((res) => res.json())
-		.then((data) => displayMeal(data.meals.splice(0, 8)));
-};
-form.addEventListener('submit', handleForm);
+const searchForm = document.getElementById('search-form');
+const mealWrapper = document.getElementById('meal-wrapper');
+const hungryMonsterModal = document.getElementById('hungry-monster-modal');
 
-const mealDetails = (id) => {
+// get meal filter by ingredients
+const getMeals = (e) => {
+	e.preventDefault();
+	let searchInput = document.getElementById('search-input').value.trim();
+	fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInput}`)
+		.then((res) => res.json())
+		.then((data) => {
+			let html = '';
+			if (data.meals) {
+				const meals = data.meals.splice(0, 8);
+				meals.forEach((meal) => {
+					html += `
+                        <button class="meal-card-btn" onclick="getMealDetails(${meal.idMeal})">
+                            <div class="meal-card" data-id="${meal.idMeal}">
+                                <img
+                                    class="meal-card-img"
+                                    src="${meal.strMealThumb}"
+                                    alt="Recipe image"
+                                />
+                                <h3 class="meal-card-title">${meal.strMeal}</h3>
+                            </div>
+                        </button>
+                    `;
+				});
+				mealWrapper.classList.remove('not-found');
+			} else {
+				html = 'No meals found!';
+				mealWrapper.classList.add('not-found');
+			}
+			mealWrapper.innerHTML = html;
+		});
+};
+
+// event listener
+searchForm.addEventListener('submit', getMeals);
+
+// get meal details by clicking on the
+const getMealDetails = (id) => {
 	fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
 		.then((res) => res.json())
-		.then((data) => mealDetailShow(data.meals[0]));
+		.then((data) => hungryMonsterModalDisplay(data.meals[0]));
 };
 
-// show meal details after call this method
-const mealDetailShow = (meal) => {
-	const mealDetail = document.getElementById('meal-details');
-	const mealDetailCard = document.createElement('div');
-	const createMealDetailCard = `
-        <img src="${meal.strMealThumb}" alt="meal image"/>
-        <h2>${meal.strMeal}</h2>
-        <h3>Ingredients</h3>
-        <ul class="ingredient-list">
-            <li>
-                <span><i class="fas fa-check-square ingredient-icon"></i></span>
+// displaying modal after click on meal-card
+const hungryMonsterModalDisplay = (meal) => {
+	hungryMonsterModal.style.display = 'block';
+	let html = `
+        <div class="hungry-monster-modal-header">
+            <i onclick="modalClose()" class="fas fa-times modal-close-icon"></i>
+        </div>
+        <img
+            class="hungry-monster-modal-img"
+            src="${meal.strMealThumb}"
+        />
+        <h2 class="modal-first-title">${meal.strMeal}</h2>
+        <h3 class="modal-second-title">Ingredients</h3>
+
+        <ul class="modal-list">
+            <li class="modal-list-item">
+                <span>
+                    <i class="fas fa-check-square modal-ingredient-icon"></i>
+                </span>
                 ${meal.strIngredient1}
             </li>
-            <li>
-                <span><i class="fas fa-check-square ingredient-icon"></i></span>
+            <li class="modal-list-item">
+                <span>
+                    <i class="fas fa-check-square modal-ingredient-icon"></i>
+                </span>
                 ${meal.strIngredient2}
             </li>
-            <li>
-                <span><i class="fas fa-check-square ingredient-icon"></i></span>
+            <li class="modal-list-item">
+                <span>
+                    <i class="fas fa-check-square modal-ingredient-icon"></i>
+                </span>
                 ${meal.strIngredient3}
             </li>
-            <li>
-                <span><i class="fas fa-check-square ingredient-icon"></i></span>
+            <li class="modal-list-item">
+                <span>
+                    <i class="fas fa-check-square modal-ingredient-icon"></i>
+                </span>
                 ${meal.strIngredient4}
             </li>
-            <li>
-                <span><i class="fas fa-check-square ingredient-icon"></i></span>
+            <li class="modal-list-item">
+                <span>
+                    <i class="fas fa-check-square modal-ingredient-icon"></i>
+                </span>
                 ${meal.strIngredient5}
-            </li>
-            <li>
-                <span><i class="fas fa-check-square ingredient-icon"></i></span>
-                ${meal.strIngredient6}
-            </li>
-            <li>
-                <span><i class="fas fa-check-square ingredient-icon"></i></span>
-                ${meal.strIngredient7}
-            </li>
-            <li>
-                <span><i class="fas fa-check-square ingredient-icon"></i></span>
-                ${meal.strIngredient8}
             </li>
         </ul>
     `;
-	mealDetailCard.innerHTML = createMealDetailCard;
-	mealDetailCard.setAttribute('class', 'meal-detail-card');
-	mealDetail.appendChild(mealDetailCard);
+	hungryMonsterModal.innerHTML = html;
 };
 
-// show meal after call this method
-const displayMeal = (meals) => {
-	const searchInstructor = document.getElementById('search-instructor-message');
-	searchInstructor.style.display = 'none  ';
-	meals.forEach((meal) => {
-		const mealContainer = document.getElementById('meal-container');
-		const mealCard = document.createElement('div');
-		const createMeal = `<button onclick="mealDetails(${meal.idMeal})">
-            <img src="${meal.strMealThumb}" alt="meal image"/>
-            <h3>${meal.strMeal}</h3>
-		</button>`;
-		mealCard.innerHTML = createMeal;
-		mealCard.setAttribute('class', 'meal-card');
-		mealContainer.appendChild(mealCard);
-	});
+// modal close method
+const modalClose = () => {
+	hungryMonsterModal.style.display = 'none';
 };

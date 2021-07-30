@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Hungry-Monster-😋</title>
+		<title>Hungry Monster</title>
 		<!-- favicon -->
 		<link rel="icon" type="image/png" href="./images/logo/hungry-monster.svg" />
 		<!-- lato font -->
@@ -26,8 +26,8 @@
 	</head>
 	<body>
 		<div class="container">
-			<!-- navigation bar -->
 			<header>
+				<!-- navigation bar -->
 				<nav class="nav">
 					<a href="#home" class="navbar-brand">
 						<img
@@ -42,37 +42,41 @@
 						<a class="menu-item" href="#blog">Blog</a>
 					</div>
 				</nav>
+				<!-- end of navigation bar -->
 			</header>
 			<main>
-				<!-- displaying meal details -->
-				<section>
-					<div id="meal-details"></div>
-				</section>
-
-				<!-- search input -->
-				<section>
-					<form id="myForm">
-						<div class="input-group">
-							<input
-								id="search"
-								type="text"
-								placeholder="🔍 Search for Meal"
-								required
-							/>
-							<input id="submit" type="submit" value="Search" />
-						</div>
+				<div>
+					<h2 class="message">Search meal by ingredients</h2>
+				</div>
+				<!-- meal search-box form -->
+				<div class="meal-search-box">
+					<form class="search-form" id="search-form">
+						<i class="fas fa-search search-icon"></i>
+						<input
+							id="search-input"
+							class="search-control"
+							type="text"
+							placeholder="Search for a Meal by ingredients"
+							required
+						/>
+						<input class="search-btn btn" type="submit" value="Search" />
 					</form>
+				</div>
+				<!-- end of meal search-box form -->
+
+				<!-- meal wrapper section -->
+				<section>
+					<div class="meal-wrapper" id="meal-wrapper"></div>
 				</section>
 
-				<!-- displaying meal info into meal card -->
+				<!-- hungry monster modal -->
 				<section>
-					<h1 id="search-instructor-message">
-						Search For Meals by ingredients
-					</h1>
-					<div id="meal-container"></div>
+					<div class="hungry-monster-modal" id="hungry-monster-modal"></div>
 				</section>
 			</main>
 		</div>
+
+		<!-- footer section -->
 		<footer class="footer">
 			<div class="copry-right">
 				<p>&copy; 2021 The Hungry Monster</p>
@@ -90,6 +94,9 @@
 				<a class="menu-item" href="#blog">Blog</a>
 			</div>
 		</footer>
+		<!-- end of footer section -->
+
+		<!-- javascript file for interactivity -->
 		<script src="./js/script.js"></script>
 	</body>
 </html>
