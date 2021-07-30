@@ -14,6 +14,7 @@ const mealDetails = (id) => {
 		.then((data) => mealDetailShow(data.meals[0]));
 };
 
+// show meal details after call this method
 const mealDetailShow = (meal) => {
 	const mealDetail = document.getElementById('meal-details');
 	const mealDetailCard = document.createElement('div');
@@ -61,7 +62,10 @@ const mealDetailShow = (meal) => {
 	mealDetail.appendChild(mealDetailCard);
 };
 
+// show meal after call this method
 const displayMeal = (meals) => {
+	const searchInstructor = document.getElementById('search-instructor-message');
+	searchInstructor.style.display = 'none  ';
 	meals.forEach((meal) => {
 		const mealContainer = document.getElementById('meal-container');
 		const mealCard = document.createElement('div');

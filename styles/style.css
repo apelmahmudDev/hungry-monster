@@ -27,6 +27,10 @@ body {
 	color: #383838;
 }
 
+#search-instructor-message {
+	text-align: center;
+}
+
 #meal-container {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
