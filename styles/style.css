@@ -31,6 +31,7 @@ body {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 30px;
+	min-height: 40vh;
 }
 
 .input-group {
@@ -66,6 +67,7 @@ input[type='submit'] {
 
 #meal-container .meal-card button {
 	border: none;
+	cursor: pointer;
 }
 
 #meal-container .meal-card img {
@@ -103,4 +105,25 @@ input[type='submit'] {
 	height: 250px;
 	object-fit: cover;
 	border-radius: 5px;
+}
+
+.footer {
+	margin-top: 5%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	background: #4d0d4f;
+	color: #fff;
+	padding: 10px;
+}
+
+.footer-menu a {
+	text-decoration: none;
+	color: #fff;
+	margin: 0 15px;
+}
+
+.footer-menu a:hover {
+	color: lightgrey;
 }
