@@ -6,6 +6,8 @@ const hungryMonsterModal = document.getElementById('hungry-monster-modal');
 const getMeals = (e) => {
 	e.preventDefault();
 	let searchInput = document.getElementById('search-input').value.trim();
+	mealWrapper.innerHTML = '';
+	loaderSpinner(true);
 	fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInput}`)
 		.then((res) => res.json())
 		.then((data) => {
@@ -32,11 +34,20 @@ const getMeals = (e) => {
 				mealWrapper.classList.add('not-found');
 			}
 			mealWrapper.innerHTML = html;
+			loaderSpinner(false);
 		});
 };
-
 // event listener
 searchForm.addEventListener('submit', getMeals);
+
+// loader spinner
+const loaderSpinner = (show) => {
+	if (show) {
+		document.getElementById('loader-spin').style.display = 'inline-block';
+	} else {
+		document.getElementById('loader-spin').style.display = 'none';
+	}
+};
 
 // get meal details by clicking on the
 const getMealDetails = (id) => {
