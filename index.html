@@ -22,6 +22,7 @@
 			crossorigin="anonymous"
 		/>
 		<!-- stylesheet -->
+		<link rel="stylesheet" href="./styles/pureCssLoader.css" />
 		<link rel="stylesheet" href="./styles/style.css" />
 	</head>
 	<body>
@@ -61,8 +62,26 @@
 						/>
 						<input class="search-btn btn" type="submit" value="Search" />
 					</form>
+					<div id="alert-msg" class="alert-msg d-none">
+						Please enter ingredients
+					</div>
 				</div>
 				<!-- end of meal search-box form -->
+
+				<!-- Pure css loader -->
+				<div style="text-align: center; margin: 5rem 0">
+					<div class="lds-roller" style="display: none" id="loader-spin">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+				<!-- end of Pure css loader -->
 
 				<!-- meal wrapper section -->
 				<section>

@@ -11,7 +11,7 @@
 }
 
 body {
-	background: #fff;
+	background: cyan;
 	font-family: 'Lato', sans-serif;
 }
 
@@ -43,7 +43,7 @@ body {
 }
 
 .search-form {
-	margin: 3rem 0;
+	margin: 3rem 0 1rem 0;
 	display: flex;
 	align-items: stretch;
 	justify-content: center;
@@ -167,18 +167,8 @@ body {
 .modal-list-item {
 	padding-left: 1rem;
 }
-
-.modal-list {
-	list-style-type: none;
-}
-
-.modal-list-item {
-	margin: 0.3rem 0;
-}
-
-.modal-ingredient-icon {
-	color: #f06c4e;
-	border-radius: 5px;
+.modal-body {
+	padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
 .footer {
@@ -199,6 +189,16 @@ body {
 	font-weight: 600;
 	width: 100%;
 	text-align: center;
+}
+
+.alert-msg {
+	font-style: italic;
+	font-size: 1.2rem;
+	text-align: center;
+	color: var(--lightRed);
+}
+.d-none {
+	display: none;
 }
 
 .message {
@@ -231,6 +231,13 @@ body {
 		width: 90%;
 		height: 500px;
 	}
+
+	.footer {
+		gap: 1.2rem;
+	}
+	.message {
+		font-size: 1.5rem;
+	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -252,9 +259,4 @@ body {
 	.meal-wrapper {
 		grid-template-columns: repeat(4, 1fr);
 	}
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-	...;
 }
