@@ -6,16 +6,20 @@ const hungryMonsterModal = document.getElementById('hungry-monster-modal');
 const getMeals = (e) => {
 	e.preventDefault();
 	let searchInput = document.getElementById('search-input').value.trim();
-	mealWrapper.innerHTML = '';
-	loaderSpinner(true);
-	fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInput}`)
-		.then((res) => res.json())
-		.then((data) => {
-			let html = '';
-			if (data.meals) {
-				const meals = data.meals.splice(0, 8);
-				meals.forEach((meal) => {
-					html += `
+	const inputAlert = document.getElementById('alert-msg');
+	if (searchInput.length === 0) {
+		inputAlert.classList.remove('d-none');
+	} else {
+		mealWrapper.innerHTML = '';
+		loaderSpinner(true);
+		fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInput}`)
+			.then((res) => res.json())
+			.then((data) => {
+				let html = '';
+				if (data.meals) {
+					const meals = data.meals.splice(0, 8);
+					meals.forEach((meal) => {
+						html += `
                         <button class="meal-card-btn" onclick="getMealDetails(${meal.idMeal})">
                             <div class="meal-card" data-id="${meal.idMeal}">
                                 <img
@@ -27,15 +31,17 @@ const getMeals = (e) => {
                             </div>
                         </button>
                     `;
-				});
-				mealWrapper.classList.remove('not-found');
-			} else {
-				html = 'No meals found!';
-				mealWrapper.classList.add('not-found');
-			}
-			mealWrapper.innerHTML = html;
-			loaderSpinner(false);
-		});
+					});
+					mealWrapper.classList.remove('not-found');
+				} else {
+					html = 'No meals found!';
+					mealWrapper.classList.add('not-found');
+				}
+				mealWrapper.innerHTML = html;
+				loaderSpinner(false);
+			});
+		inputAlert.classList.add('d-none');
+	}
 };
 // event listener
 searchForm.addEventListener('submit', getMeals);

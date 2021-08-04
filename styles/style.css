@@ -43,7 +43,7 @@ body {
 }
 
 .search-form {
-	margin: 3rem 0;
+	margin: 3rem 0 1rem 0;
 	display: flex;
 	align-items: stretch;
 	justify-content: center;
@@ -199,6 +199,16 @@ body {
 	font-weight: 600;
 	width: 100%;
 	text-align: center;
+}
+
+.alert-msg {
+	font-style: italic;
+	font-size: 1.2rem;
+	text-align: center;
+	color: var(--lightRed);
+}
+.d-none {
+	display: none;
 }
 
 .message {
